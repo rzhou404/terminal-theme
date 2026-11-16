@@ -1,0 +1,6 @@
+/* Amber phosphor. Load after terminal.css. */
+:root {
+  --t-bg: #120d03; --t-bg2: #1a1305; --t-bg3: #241a08;
+  --t-fg: #ffd98a; --t-dim: #a07a30; --t-line: #33260c;
+  --t-grn: #ffb000; --t-yel: #ffe08a; --t-cyan: #ffcf66; --t-red: #ff7a5c; --t-mag: #ffb3a0;
+}

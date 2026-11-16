@@ -1,0 +1,56 @@
+/* base.css: plain element styles for a new page. Needs terminal.css first.
+   Skip this file if your app already has its own element styles. */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { background: var(--t-bg); -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--t-bg);
+  color: var(--t-fg);
+  font: 15px/1.65 var(--t-font);
+}
+
+a { color: var(--t-cyan); }
+a:hover { color: var(--t-grn); }
+
+h1, h2, h3, h4 { margin: 1.6em 0 .4em; line-height: 1.25; font-weight: 700; }
+h1 { font-size: 1.35rem; color: var(--t-yel); }
+h2 { font-size: 1.05rem; color: var(--t-cyan); }
+h3 { font-size: 1rem; color: var(--t-fg); }
+h1:first-child, h2:first-child { margin-top: 0; }
+
+p, ul, ol, pre, table, blockquote { margin: .6em 0; }
+ul, ol { padding-left: 1.4rem; }
+hr { border: 0; border-top: 1px solid var(--t-line); margin: 1.4rem 0; }
+small { color: var(--t-dim); }
+blockquote { border-left: 2px solid var(--t-dim); padding-left: 1rem; color: var(--t-dim); }
+
+code, kbd, samp { font: inherit; color: var(--t-yel); }
+pre {
+  padding: .8rem 1rem; overflow-x: auto;
+  background: var(--t-bg2); border: 1px solid var(--t-line);
+}
+pre code { color: var(--t-fg); }
+
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid var(--t-line); padding: .35rem .6rem; text-align: left; vertical-align: top; }
+th { color: var(--t-dim); font-weight: 400; }
+
+input, select, textarea, button { font: inherit; color: inherit; }
+input, select, textarea {
+  background: var(--t-bg); border: 1px solid var(--t-line); padding: .4rem .6rem; max-width: 100%;
+}
+input::placeholder, textarea::placeholder { color: var(--t-dim); }
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--t-grn); }
+button {
+  background: var(--t-grn); color: var(--t-bg); border: 1px solid var(--t-grn);
+  padding: .4rem .9rem; font-weight: 700; cursor: pointer;
+}
+button:hover { filter: brightness(1.1); }
+button:disabled { opacity: .5; cursor: not-allowed; }
+
+:focus-visible { outline: 1px solid var(--t-grn); outline-offset: 2px; }
+
+img, svg, video { max-width: 100%; }

@@ -1,0 +1,78 @@
+/* components.css: opt-in building blocks, all prefixed t-. Needs terminal.css first.
+   Every colour comes from the --t-* tokens, so a theme file restyles all of them. */
+
+/* Layout */
+.t-page { max-width: 60rem; margin: 0 auto; padding: 1.2rem 1rem 3rem; }
+.t-page--narrow { max-width: 46rem; }
+.t-grid { display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+.t-row { display: flex; gap: .8rem; flex-wrap: wrap; align-items: center; }
+
+/* Surfaces */
+.t-box { background: var(--t-bg2); border: 1px solid var(--t-line); padding: .8rem 1rem; }
+.t-box > :first-child { margin-top: 0; }
+.t-box > :last-child { margin-bottom: 0; }
+.t-box--ok   { border-color: var(--t-grn); }
+.t-box--warn { border-color: var(--t-yel); }
+.t-box--bad  { border-color: var(--t-red); }
+
+/* Text colours */
+.t-muted { color: var(--t-dim); }
+.t-ok    { color: var(--t-grn); }
+.t-warn  { color: var(--t-yel); }
+.t-bad   { color: var(--t-red); }
+.t-info  { color: var(--t-cyan); }
+.t-big   { font-size: 1.5rem; font-weight: 700; }
+
+/* Shell prompt prefix: <span class="t-prompt">ls -l</span> shows "$ ls -l" */
+.t-prompt::before { content: "$ "; color: var(--t-dim); }
+.t-cursor::after { content: "_"; color: var(--t-grn); animation: t-blink 1.1s steps(1) infinite; }
+@keyframes t-blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .t-cursor::after { animation: none; } }
+
+/* Buttons and inputs (classes, for apps whose element styles are their own) */
+.t-btn {
+  display: inline-block; background: var(--t-grn); color: var(--t-bg);
+  border: 1px solid var(--t-grn); padding: .4rem .9rem; font: inherit; font-weight: 700;
+  text-decoration: none; cursor: pointer;
+}
+.t-btn:hover { filter: brightness(1.1); color: var(--t-bg); }
+.t-btn--ghost { background: transparent; color: var(--t-grn); }
+.t-btn--ghost:hover { background: var(--t-bg2); color: var(--t-grn); }
+.t-btn--bad { background: var(--t-red); border-color: var(--t-red); }
+.t-input {
+  background: var(--t-bg); color: var(--t-fg); border: 1px solid var(--t-line);
+  padding: .4rem .6rem; font: inherit;
+}
+.t-input:focus { outline: none; border-color: var(--t-grn); }
+
+/* Tags */
+.t-tag { display: inline-block; padding: 0 .5rem; border: 1px solid var(--t-line); color: var(--t-dim); font-size: .85em; }
+.t-tag--ok   { color: var(--t-grn); border-color: var(--t-grn); }
+.t-tag--warn { color: var(--t-yel); border-color: var(--t-yel); }
+.t-tag--bad  { color: var(--t-red); border-color: var(--t-red); }
+
+/* Lists: a ">" before each item */
+.t-list { list-style: none; padding-left: 0; }
+.t-list li::before { content: "> "; color: var(--t-grn); }
+
+/* Nav: a row of links, current one marked with aria-current="page" */
+.t-nav { display: flex; gap: 1.2rem; flex-wrap: wrap; padding: .6rem 0; border-bottom: 1px solid var(--t-line); }
+.t-nav a { color: var(--t-fg); text-decoration: none; }
+.t-nav a:hover { color: var(--t-grn); }
+.t-nav a[aria-current="page"] { color: var(--t-grn); border-bottom: 2px solid var(--t-grn); }
+.t-nav .t-brand { color: var(--t-grn); font-weight: 700; margin-right: auto; }
+.t-nav .t-brand::before { content: "$ "; color: var(--t-dim); }
+
+/* Clickable row (use with terminal-keys.js: the j/k highlight shows on it) */
+.t-linkrow {
+  display: flex; gap: 1rem; padding: .25rem .5rem; color: var(--t-fg); text-decoration: none;
+  border-left: 2px solid transparent;
+}
+.t-linkrow:hover { background: var(--t-bg2); border-left-color: var(--t-grn); color: var(--t-grn); }
+
+/* Bar: <div class="t-bar"><i style="width:40%"></i></div> */
+.t-bar { height: .6rem; background: var(--t-bg3); border: 1px solid var(--t-line); }
+.t-bar > i { display: block; height: 100%; background: var(--t-grn); }
+
+/* Keyboard hint */
+.t-kbd { font: inherit; color: var(--t-fg); border: 1px solid var(--t-line); padding: 0 .35rem; background: var(--t-bg2); }

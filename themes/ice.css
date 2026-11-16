@@ -1,0 +1,6 @@
+/* Cool blue on near-black. Load after terminal.css. */
+:root {
+  --t-bg: #0a0d12; --t-bg2: #10151c; --t-bg3: #171e28;
+  --t-fg: #d6e4f5; --t-dim: #6a7f99; --t-line: #1d2735;
+  --t-grn: #5eead4; --t-yel: #fde68a; --t-cyan: #7dd3fc; --t-red: #fca5a5; --t-mag: #c4b5fd;
+}

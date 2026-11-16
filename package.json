@@ -1,0 +1,23 @@
+{
+  "name": "terminal-theme",
+  "version": "1.0.0",
+  "description": "A terminal look for any web page: monospace, square corners, dark palette, vim-style keys. Plain CSS and one plain script.",
+  "license": "MIT",
+  "keywords": ["css", "theme", "terminal", "vim", "dark", "design-tokens"],
+  "repository": { "type": "git", "url": "git+https://github.com/rzhou404/terminal-theme.git" },
+  "homepage": "https://github.com/rzhou404/terminal-theme#readme",
+  "style": "all.css",
+  "files": ["all.css", "terminal.css", "base.css", "components.css", "terminal-keys.js", "themes", "sync.sh"],
+  "exports": {
+    ".": "./all.css",
+    "./all.css": "./all.css",
+    "./terminal.css": "./terminal.css",
+    "./base.css": "./base.css",
+    "./components.css": "./components.css",
+    "./keys": "./terminal-keys.js",
+    "./terminal-keys.js": "./terminal-keys.js",
+    "./themes/*": "./themes/*",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": ["*.css", "./terminal-keys.js"]
+}

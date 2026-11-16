@@ -1,0 +1,49 @@
+/* terminal-theme: a shared terminal look for sites and apps.
+   Monospace, green on black, square corners, always dark.
+   Canonical tokens are --t-*. An app maps its own names onto them. */
+
+:root {
+  color-scheme: dark;
+  --t-bg: #0c0f0a;
+  --t-bg2: #121810;
+  --t-bg3: #182014;
+  --t-fg: #c8f7c5;
+  --t-dim: #6b8f66;
+  --t-line: #1f2a1c;
+  --t-yel: #f5d76e;
+  --t-cyan: #67e8f9;
+  --t-red: #f87171;
+  --t-grn: #4ade80;
+  --t-mag: #f0abfc;
+  --t-font: "JetBrains Mono", ui-monospace, "Cascadia Code", Menlo, Consolas, monospace;
+}
+
+/* Square everything. */
+*, *::before, *::after { border-radius: 0 !important; }
+
+::selection { background: var(--t-grn); color: var(--t-bg); }
+
+/* Thin dark scrollbars */
+* { scrollbar-width: thin; scrollbar-color: var(--t-line) var(--t-bg); }
+
+/* Row highlighted by j/k (see terminal-keys.js) */
+.kb-sel {
+  outline: 1px solid var(--t-grn) !important;
+  outline-offset: 2px;
+  background: var(--t-bg2);
+}
+
+/* Vim-style status line at the bottom. Hidden on touch screens. */
+.sl {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 9;
+  display: flex; gap: 1rem; justify-content: space-between;
+  background: var(--t-bg2); border-top: 1px solid var(--t-line);
+  padding: .15rem .8rem; font: .8em/1.5 var(--t-font); color: var(--t-dim);
+}
+.sl .mode { color: var(--t-bg); background: var(--t-grn); padding: 0 .45rem; font-weight: 700; }
+.sl kbd { font: inherit; color: var(--t-fg); }
+@media (hover: none) { .sl { display: none; } }
+
+/* Shell-prompt heading: <h1 class="t-h1">name</h1> shows "# name" */
+.t-h1::before { content: "# "; color: var(--t-dim); }
+.t-h2::before { content: "## "; color: var(--t-dim); }

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>terminal-theme demo</title>
+<link rel="stylesheet" href="all.css">
+<link rel="stylesheet" id="palette" href="data:text/css,">
+<body>
+<div class="t-page">
+  <nav class="t-nav" aria-label="Demo">
+    <span class="t-brand">terminal-theme</span>
+    <a href="#colors" aria-current="page">colors</a>
+    <a href="#parts">parts</a>
+    <a href="#keys">keys</a>
+  </nav>
+
+  <h1 class="t-h1" style="margin-top:1.2rem">terminal-theme</h1>
+  <p class="t-muted">Monospace, square corners, dark palette, vim keys. Press <span class="t-kbd">j</span> and <span class="t-kbd">k</span> to move over the links. Pick a palette:</p>
+  <div class="t-row" id="palettes">
+    <button type="button" data-p="">green</button>
+    <button type="button" data-p="themes/amber.css" class="t-btn--ghost">amber</button>
+    <button type="button" data-p="themes/ice.css" class="t-btn--ghost">ice</button>
+  </div>
+
+  <h2 id="colors">Colors</h2>
+  <div class="t-grid">
+    <div class="t-box"><span class="t-muted">Spent</span><div class="t-big">$1,992</div><a href="#colors">Show details</a></div>
+    <div class="t-box t-box--ok"><span class="t-muted">Uptime</span><div class="t-big t-ok">99.9%</div><a href="#colors">View status</a></div>
+    <div class="t-box t-box--bad"><span class="t-muted">Errors</span><div class="t-big t-bad">12</div><a href="#colors">Open log</a></div>
+  </div>
+
+  <h2 id="parts">Parts</h2>
+  <div class="t-row">
+    <a class="t-btn" href="#parts">Save</a>
+    <a class="t-btn t-btn--ghost" href="#parts">Cancel</a>
+    <a class="t-btn t-btn--bad" href="#parts">Delete</a>
+    <span class="t-tag t-tag--ok">ok</span>
+    <span class="t-tag t-tag--warn">warn</span>
+    <span class="t-tag t-tag--bad">down</span>
+  </div>
+  <p><input class="t-input" placeholder="filter..." aria-label="filter"> <span class="t-prompt t-cursor">ready</span></p>
+  <div class="t-bar" aria-hidden="true"><i style="width:62%"></i></div>
+  <ul class="t-list">
+    <li>Plain CSS, no build step</li>
+    <li>One plain script, no dependencies</li>
+    <li>Swap the palette with one file</li>
+  </ul>
+  <div>
+    <a class="t-linkrow" href="#parts"><span>orders</span><span class="t-muted">3 new</span></a>
+    <a class="t-linkrow" href="#parts"><span>inventory</span><span class="t-muted">updated</span></a>
+    <a class="t-linkrow" href="#parts"><span>settings</span><span class="t-muted">account</span></a>
+  </div>
+
+  <h2 id="keys">Keys</h2>
+  <table>
+    <tr><th>key</th><th>does</th></tr>
+    <tr><td><code>j</code> / <code>k</code></td><td>next / previous link</td></tr>
+    <tr><td><code>Enter</code>, <code>o</code></td><td>open, open in new tab</td></tr>
+    <tr><td><code>d</code> / <code>u</code></td><td>half page down / up</td></tr>
+    <tr><td><code>gg</code> / <code>G</code></td><td>top / bottom</td></tr>
+  </table>
+<pre><code>&lt;link rel="stylesheet" href="all.css"&gt;
+&lt;script src="terminal-keys.js"
+        data-links="main a[href]"&gt;&lt;/script&gt;</code></pre>
+</div>
+
+<script src="terminal-keys.js" data-links=".t-page a[href]" data-pages="#colors,#parts,#keys"></script>
+<script>
+  document.getElementById("palettes").addEventListener("click", function (e) {
+    var b = e.target.closest("button"); if (!b) return;
+    document.getElementById("palette").href = b.dataset.p || "data:text/css,";
+    [].forEach.call(this.children, function (x) { x.classList.toggle("t-btn--ghost", x !== b); });
+  });
+</script>
+</body>
+</html>
